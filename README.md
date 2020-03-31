@@ -32,7 +32,7 @@ Download the AWS Access Token CSV file below:
 
 Open up a command line and run the following command:
 
-> batch aws configure
+> aws configure
 
 Enter the **Access key ID** and **Secret access key** from the CSV you downloaded above.
 

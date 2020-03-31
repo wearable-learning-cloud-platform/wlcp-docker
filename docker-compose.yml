@@ -1,0 +1,85 @@
+version: '3.1'
+services: 
+
+    docker-host:
+        container_name: docker-host
+        image: qoomon/docker-host
+        cap_add: [ 'NET_ADMIN', 'NET_RAW' ]
+        restart: always
+
+    wlcp-api-db:
+        container_name: wlcp-api-db
+        image: mysql:latest
+        restart: always
+        ports:
+            - 3306:3306
+        environment:
+            MYSQL_ROOT_PASSWORD: root
+            MYSQL_DATABASE: wlcp-api
+            MYSQL_USER: wlcp
+            MYSQL_PASSWORD: wlcp
+
+    adminer:
+        container_name: wlcp-adminer
+        image: adminer
+        restart: always
+        ports:
+            - 8081:8080
+
+    wlcp-discovery:
+        container_name: wlcp-discovery
+        image: 397120343186.dkr.ecr.us-east-2.amazonaws.com/wlcp-discovery:latest
+        ports:
+            - 8761:8761
+        entrypoint: /bin/sh
+        command: -c "java -jar /app.jar"
+
+    wlcp-gateway:
+        container_name: wlcp-gateway
+        image: 397120343186.dkr.ecr.us-east-2.amazonaws.com/wlcp-gateway:latest
+        ports: 
+            - 8050:8050
+        entrypoint: /bin/sh
+        environment: 
+            - SPRING_PROFILES_ACTIVE=docker
+        command: -c "sleep 20; java -jar /app.jar"
+        
+    wlcp-api:
+        container_name: wlcp-api
+        image: 397120343186.dkr.ecr.us-east-2.amazonaws.com/wlcp-api:latest
+        ports: 
+            - 8082:8082
+        entrypoint: /bin/sh
+        environment: 
+            - SPRING_PROFILES_ACTIVE=docker
+        command: -c "sleep 20; java -jar /app.jar"
+
+    wlcp-gameserver:
+        container_name: wlcp-gameserver
+        image: 397120343186.dkr.ecr.us-east-2.amazonaws.com/wlcp-gameserver:latest
+        ports: 
+            - 3333:3333
+        entrypoint: /bin/sh
+        environment: 
+            - SPRING_PROFILES_ACTIVE=docker
+        command: -c "sleep 20; java -jar /app.jar"
+
+    wlcp-transpiler:
+        container_name: wlcp-transpiler
+        image: 397120343186.dkr.ecr.us-east-2.amazonaws.com/wlcp-transpiler:latest
+        ports: 
+            - 8083:8083
+        entrypoint: /bin/sh
+        environment: 
+            - SPRING_PROFILES_ACTIVE=docker
+        command: -c "sleep 20; java -jar /app.jar"
+
+    wlcp-ui:
+        container_name: wlcp-ui
+        image: 397120343186.dkr.ecr.us-east-2.amazonaws.com/wlcp-ui:latest
+        ports:
+            - 3000:3000
+        entrypoint: /bin/sh
+        environment: 
+            - UI5_PROFILES_ACTIVE=docker
+        command: -c "sleep 20; cd /usr/src/app; ui5 serve --port 3000 --accept-remote-connections --config ui5-docker.yaml"

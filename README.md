@@ -8,9 +8,11 @@ This repository is used to setup a local docker instance with all of the wearabl
 
 ## Install Docker Desktop
 
-The first step is to install Docker Desktop. This can be installed on either Windows or Mac OS. Follow the appropriate link below depending on your operating system.
+The first step is to install Docker Desktop. This can be installed on either Window, Linux or Mac OS. Follow the appropriate link below depending on your operating system.
 
 [Windows](https://docs.docker.com/docker-for-windows/install)
+
+[Linux](https://docs.docker.com/engine/install/)
 
 [Mac OS](https://docs.docker.com/docker-for-mac/install/)
 
@@ -40,5 +42,35 @@ Enter the **Access key ID** and **Secret access key** from the CSV you downloade
 
 ## Cloning this repository
 
+Make sure that you have git installed on your system.
+
+[Install Git](https://git-scm.com/downloads)
+
+Clone this repository using the following command:
+
+> git clone https://github.com/wearable-learning-cloud-platform/wlcp-docker.git
+
+Now open a command prompt and enter the directory you just cloned.
+
+If you are on windows run the following command:
+
+> run.bat
+
+If you are on Mac/Linux run the following command:
+
+> run.sh
+
+The entire system will now boot up. It may take a few minutes and you may need to try booting it up multiple times in order to getting thing up and running for the first time.
+
+You can access the system at the following link:
+
+[Click here to access system locally](http://localhost:8050)
+
 # Pull the Portainer Image for Local Docker Management (Optional but Recommended)
 
+Run the following commands in a command prompt:
+
+> docker volume create portainer_data
+> docker run -d -p 8000:8000 -p 9000:9000 --name=portainer --restart=always -v /var/run/docker.sock:/var/run/docker.sock -v portainer_data:/data portainer/portainer
+
+[Click here to open portainer](http://http://localhost:9000)

@@ -32,7 +32,7 @@ Under advanced select atleast 2 CPU & 2048mb of memory. Feel free to select more
 
 Download the AWS Access Token CSV file below:
 
-[AWS CSV TOKEN]()
+[AWS CSV TOKEN](https://drive.google.com/file/d/138A0D85HnU3PQKTahf0yjo9bAY_c8RdI/view?usp=sharing)
 
 Open up a command line and run the following command:
 

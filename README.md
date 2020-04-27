@@ -18,7 +18,9 @@ The first step is to install Docker Desktop. This can be installed on either Win
 
 After you have installed Docker Desktop some additional settings need to be configured in order to allocate more resources on your machine. Right click on the docker icon in the task bar and go to settings.
 
-Under advanced select atleast 4 CPU & 8192mb of memory.
+Under advanced select atleast 2 CPU & 2048mb of memory. Feel free to select more if you have more (up to half of all resources).
+
+![image](https://user-images.githubusercontent.com/23061418/80401367-3a1c0280-888a-11ea-881e-c8eb856fafd5.png)
 
 ## Install the AWS Command Line Interface
 

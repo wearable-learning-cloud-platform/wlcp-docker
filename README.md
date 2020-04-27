@@ -75,3 +75,7 @@ Run the following commands in a command prompt:
 > docker run -d -p 8000:8000 -p 9000:9000 --name=portainer --restart=always -v /var/run/docker.sock:/var/run/docker.sock -v portainer_data:/data portainer/portainer
 
 [Click here to open portainer](http://http://localhost:9000)
+
+You can now manage all of the WLCP containers:
+
+![image](https://user-images.githubusercontent.com/23061418/80402483-f75b2a00-888b-11ea-8ab9-2907aa6b4efc.png)

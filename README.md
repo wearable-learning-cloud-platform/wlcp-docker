@@ -79,3 +79,28 @@ Run the following commands in a command prompt:
 You can now manage all of the WLCP containers:
 
 ![image](https://user-images.githubusercontent.com/23061418/80402483-f75b2a00-888b-11ea-8ab9-2907aa6b4efc.png)
+
+# Development Environment Setup
+
+This section includes information on what tools you need to help develop the WLCP as well as some guidelines and best practices while developing.
+
+## IDEs & Tools
+
+The following IDEs and tools are required to develop the WLCP. They all must be downloaded and installed.
+
+[Spring Tool Suite](https://spring.io/tools) - For Java Development (Backend)
+
+[VSCode](https://code.visualstudio.com/) - For JavaScript Development (Frontend)
+
+[NodeJS](https://nodejs.org/en/) - For running the frontend (make sure to install NPM as well)
+
+## Workflow
+
+This section describes the workflow for developing both backend Java code and frontend JavaScript code. The first step before doing any development is to make sure you have completed the docker setup above and the entire system is up and running by using the run.bat or run.sh script.
+
+Next you need to determine which microservice you need to work with (wlcp-api, wlcp-gameserver, wlpc-ui, etc) and stop that microservice in portainer. Then you must clone the microservice from GitHub (or pull if you have already cloned) and start the application locally either in Spring Tool Suite (for Java) or NodeJS for JavaScript. Below are examples of the work flow for the backend and frontend.
+
+### Backend Development Example (wlcp-api)
+
+### Frontend Development Example (wlcp-ui)
+

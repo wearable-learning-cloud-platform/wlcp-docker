@@ -101,6 +101,19 @@ This section describes the workflow for developing both backend Java code and fr
 Next you need to determine which microservice you need to work with (wlcp-api, wlcp-gameserver, wlpc-ui, etc) and stop that microservice in portainer. Then you must clone the microservice from GitHub (or pull if you have already cloned) and start the application locally either in Spring Tool Suite (for Java) or NodeJS for JavaScript. Below are examples of the work flow for the backend and frontend.
 
 ### Backend Development Example (wlcp-api)
+1. Make sure the entire system in booted up and running in docker (run.bat or run.sh)
+1. Using portainer, stop the microservice wlcp-api
+1. Clone the wlcp-api in spring tool suite
+1. Right click on the git repository and import as a maven project
+1. Right click the project and go to Debug -> Run as spring boot application
+1. You can now being writing code
 
 ### Frontend Development Example (wlcp-ui)
+1. Make sure the entire system in booted up and running in docker (run.bat or run.sh)
+1. Using portainer, stop the microservice wlcp-ui
+1. Clone the wlcp-ui using VSCode or the git command line
+1. In a command prompt cd into the directory you cloned
+1. Run the command *npm run serve* to start the applicaiton locally
+1. You can now being writing code in VSCode
 
+### Pushing Your Changes and Submitting a Pull Request

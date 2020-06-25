@@ -117,3 +117,5 @@ Next you need to determine which microservice you need to work with (wlcp-api, w
 1. You can now being writing code in VSCode
 
 ### Pushing Your Changes and Submitting a Pull Request
+
+After your changes are complete you must create a new branch, push that branch and then use GitHub to submit a pull request. Make sure mmicciolo is added as a reviwer. Once the review is complete, the feature branch you created above will be merged into master.

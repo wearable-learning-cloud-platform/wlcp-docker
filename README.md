@@ -32,7 +32,7 @@ Under advanced select atleast 2 CPU & 2048mb of memory. Feel free to select more
 
 Download the AWS Access Token CSV file below:
 
-[AWS CSV TOKEN]()
+[AWS CSV TOKEN](https://drive.google.com/file/d/138A0D85HnU3PQKTahf0yjo9bAY_c8RdI/view?usp=sharing)
 
 Open up a command line and run the following command:
 
@@ -74,8 +74,48 @@ Run the following commands in a command prompt:
 
 > docker run -d -p 8000:8000 -p 9000:9000 --name=portainer --restart=always -v /var/run/docker.sock:/var/run/docker.sock -v portainer_data:/data portainer/portainer
 
-[Click here to open portainer](http://http://localhost:9000)
+[Click here to open portainer](http://localhost:9000)
 
 You can now manage all of the WLCP containers:
 
 ![image](https://user-images.githubusercontent.com/23061418/80402483-f75b2a00-888b-11ea-8ab9-2907aa6b4efc.png)
+
+# Development Environment Setup
+
+This section includes information on what tools you need to help develop the WLCP as well as some guidelines and best practices while developing.
+
+## IDEs & Tools
+
+The following IDEs and tools are required to develop the WLCP. They all must be downloaded and installed.
+
+[Spring Tool Suite](https://spring.io/tools) - For Java Development (Backend)
+
+[VSCode](https://code.visualstudio.com/) - For JavaScript Development (Frontend)
+
+[NodeJS](https://nodejs.org/en/) - For running the frontend (make sure to install NPM as well)
+
+## Workflow
+
+This section describes the workflow for developing both backend Java code and frontend JavaScript code. The first step before doing any development is to make sure you have completed the docker setup above and the entire system is up and running by using the run.bat or run.sh script.
+
+Next you need to determine which microservice you need to work with (wlcp-api, wlcp-gameserver, wlpc-ui, etc) and stop that microservice in portainer. Then you must clone the microservice from GitHub (or pull if you have already cloned) and start the application locally either in Spring Tool Suite (for Java) or NodeJS for JavaScript. Below are examples of the work flow for the backend and frontend.
+
+### Backend Development Example (wlcp-api)
+1. Make sure the entire system in booted up and running in docker (run.bat or run.sh)
+1. Using portainer, stop the microservice wlcp-api
+1. Clone the wlcp-api in spring tool suite
+1. Right click on the git repository and import as a maven project
+1. Right click the project and go to Debug -> Run as spring boot application
+1. You can now being writing code
+
+### Frontend Development Example (wlcp-ui)
+1. Make sure the entire system in booted up and running in docker (run.bat or run.sh)
+1. Using portainer, stop the microservice wlcp-ui
+1. Clone the wlcp-ui using VSCode or the git command line
+1. In a command prompt cd into the directory you cloned
+1. Run the command *npm run serve* to start the applicaiton locally
+1. You can now being writing code in VSCode
+
+### Pushing Your Changes and Submitting a Pull Request
+
+After your changes are complete you must create a new branch, push that branch and then use GitHub to submit a pull request. Make sure mmicciolo is added as a reviwer. Once the review is complete, the feature branch you created above will be merged into master.

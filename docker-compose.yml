@@ -33,8 +33,6 @@ services:
         ports:
             - 8761:8761
         entrypoint: /bin/sh
-        environment: 
-            - SPRING_PROFILES_ACTIVE=docker
         command: -c "java -jar /app.jar"
 
     wlcp-gateway:

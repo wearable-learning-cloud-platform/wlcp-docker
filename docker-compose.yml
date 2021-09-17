@@ -7,7 +7,7 @@ services:
         cap_add: [ 'NET_ADMIN', 'NET_RAW' ]
         restart: always
 
-    wlcp-db:
+    wlcp-db-dev:
         container_name: wlcp-db-dev
         image: mysql:latest
         restart: always
@@ -27,16 +27,16 @@ services:
         ports:
             - 8081:8080
 
-    wlcp-discovery:
-        container_name: wlcp-discovery
+    wlcp-discovery-dev:
+        container_name: wlcp-discovery-dev
         image: 397120343186.dkr.ecr.us-east-2.amazonaws.com/wlcp-discovery-dev:latest
         ports:
             - 8761:8761
         entrypoint: /bin/sh
         command: -c "java -jar /app.jar"
 
-    wlcp-gateway:
-        container_name: wlcp-gateway
+    wlcp-gateway-dev:
+        container_name: wlcp-gateway-dev
         image: 397120343186.dkr.ecr.us-east-2.amazonaws.com/wlcp-gateway-dev:latest
         ports: 
             - 8050:8050
@@ -45,8 +45,8 @@ services:
             - SPRING_PROFILES_ACTIVE=docker
         command: -c "sleep 20; java -jar /app.jar"
         
-    wlcp-api:
-        container_name: wlcp-api
+    wlcp-api-dev:
+        container_name: wlcp-api-dev
         image: 397120343186.dkr.ecr.us-east-2.amazonaws.com/wlcp-api-dev:latest
         ports: 
             - 8082:8082
@@ -55,8 +55,8 @@ services:
             - SPRING_PROFILES_ACTIVE=docker
         command: -c "sleep 20; java -jar /app.jar"
 
-    wlcp-gameserver:
-        container_name: wlcp-gameserver
+    wlcp-gameserver-dev:
+        container_name: wlcp-gameserver-dev
         image: 397120343186.dkr.ecr.us-east-2.amazonaws.com/wlcp-gameserver-dev:latest
         ports: 
             - 3333:3333
@@ -65,8 +65,8 @@ services:
             - SPRING_PROFILES_ACTIVE=docker
         command: -c "sleep 20; java -jar /app.jar"
 
-    wlcp-transpiler:
-        container_name: wlcp-transpiler
+    wlcp-transpiler-dev:
+        container_name: wlcp-transpiler-dev
         image: 397120343186.dkr.ecr.us-east-2.amazonaws.com/wlcp-transpiler-dev:latest
         ports: 
             - 8083:8083
@@ -75,8 +75,8 @@ services:
             - SPRING_PROFILES_ACTIVE=docker
         command: -c "sleep 20; java -jar /app.jar"
 
-    wlcp-metrics:
-        container_name: wlcp-metrics
+    wlcp-metrics-dev:
+        container_name: wlcp-metrics-dev
         image: 397120343186.dkr.ecr.us-east-2.amazonaws.com/wlcp-metrics-dev:latest
         ports: 
             - 8084:8084
@@ -85,8 +85,8 @@ services:
             - SPRING_PROFILES_ACTIVE=docker
         command: -c "sleep 20; java -jar /app.jar"
 
-    wlcp-ui:
-        container_name: wlcp-ui
+    wlcp-ui-dev:
+        container_name: wlcp-ui-dev
         image: 397120343186.dkr.ecr.us-east-2.amazonaws.com/wlcp-ui-dev:latest
         ports:
             - 3000:3000

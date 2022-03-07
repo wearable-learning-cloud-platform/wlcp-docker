@@ -30,6 +30,7 @@ services:
     wlcp-discovery-dev:
         container_name: wlcp-discovery-dev
         image: 397120343186.dkr.ecr.us-east-2.amazonaws.com/wlcp-discovery-dev:latest
+        restart: always
         ports:
             - 8761:8761
         entrypoint: /bin/sh
@@ -38,6 +39,7 @@ services:
     wlcp-gateway-dev:
         container_name: wlcp-gateway-dev
         image: 397120343186.dkr.ecr.us-east-2.amazonaws.com/wlcp-gateway-dev:latest
+        restart: always
         ports: 
             - 8050:8050
         entrypoint: /bin/sh
